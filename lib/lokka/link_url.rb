@@ -1,9 +1,12 @@
 module Lokka
   module LinkUrl
     def self.registered(app)
-      app.before do
-        if body = (params[:post] && params[:post][:body])
-          body.force_encoding("utf-8").gsub!(/\[url:(.*?)\]/u){ LinkUrl::Util.link($1) }
+      %w(posts posts/* pages pages/*).each do |suburl|
+        app.before("/admin/#{suburl}") do
+          if @request.env['REQUEST_METHOD'] =~ /POST|PUT/ && 
+             (body = (params[:post] && params[:post][:body]))
+            body.force_encoding("utf-8").gsub!(/\[url:(.*?)\]/u){ LinkUrl::Util.link($1) }
+          end
         end
       end
     end
