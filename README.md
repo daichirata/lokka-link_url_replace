@@ -15,7 +15,7 @@ e.g.
 
 It is replaced.
 
-    "<a href="http://lokka.org/">Lokka - CMS for Cloud</a>"
+    "<a href="http://lokka.org/" target="_blank">Lokka - CMS for Cloud</a>"
 
 
 
