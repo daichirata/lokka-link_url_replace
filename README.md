@@ -1,5 +1,7 @@
 # Lokka Link Url Replace
 
+This plug-in Expand the URL, and replace.
+
 ## Installation
 
     $ cd APP_ROOT/public/plugins/
