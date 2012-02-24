@@ -18,8 +18,7 @@ This plug-in Expand the URL, and replace.
 
 [tweet:133640144317198338]
 
-<blockquote class="twitter-tweet"><p>Search API will now always return "real" Twitter user IDs. The with_twitter_user_id parameter is no longer necessary. An era has ended. ^TS</p>&mdash; Twitter API (@twitterapi) <a href="https://twitter.com/twitterapi/status/133640144317198338" data-datetime="2011-11-07T20:21:07+00:00">November 7, 2011</a></blockquote>
-<script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+![tweet](http://cdn-ak.f.st-hatena.com/images/fotolife/b/bunnyhop/20120224/20120224223203.png?1330090341)
 
 [github:komagata/lokka]
 
