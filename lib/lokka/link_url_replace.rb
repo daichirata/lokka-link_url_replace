@@ -61,10 +61,7 @@ module Lokka
         result =
           JSON.parse(open("https://api.twitter.com/1/statuses/oembed.json?id=#{status}").read)
 
-        <<-HTML
-          #{result["html"]}
-          <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-        HTML
+        result["html"]
       end
     end
   end

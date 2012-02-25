@@ -23,10 +23,7 @@ describe Lokka::LinkUrlReplace do
     it "should be expanded" do
       stub_request(:get, "https://api.twitter.com/1/statuses/oembed.json?id=133640144317198338").to_return(:body => api_mock_html)
 
-      subject.replace!("[tweet:133640144317198338]").should eq <<-JSON
-          #{ JSON.parse(api_mock_html)['html'] }
-          <script src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-      JSON
+      subject.replace!("[tweet:133640144317198338]").should eq (JSON.parse(api_mock_html)['html'])
     end
   end
 
