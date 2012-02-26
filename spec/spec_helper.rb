@@ -7,15 +7,14 @@ Bundler.require :default if defined?(Bundler)
 $:.unshift File.expand_path(File.dirname(__FILE__) + '/../lib')
 require 'lokka/link_url_replace'
 
-require 'webmock'
-include WebMock
+require 'webmock/rspec'
 
 def mock_html
-  @mock_html ||= open(File.expand_path(File.dirname(__FILE__) + '/lib/mock/mock.html')).read
+  @mock_html ||= open(File.expand_path(File.dirname(__FILE__) + '/mock/mock.html')).read
 end
 
 def api_mock_html
-  @api_mock_html ||= open(File.expand_path(File.dirname(__FILE__) + '/lib/mock/api_mock.html')).read
+  @api_mock_html ||= open(File.expand_path(File.dirname(__FILE__) + '/mock/api_mock.html')).read
 end
 
 
