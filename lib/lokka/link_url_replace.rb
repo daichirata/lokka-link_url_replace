@@ -23,8 +23,8 @@ module Lokka
         body
       end
 
-      def self.replace_pattarn(suffix, &block)
-        regexp = %r|\[#{suffix}:(.*?)\]|
+      def self.replace_pattarn(prefix, &block)
+        regexp = %r|\[#{prefix}:(.*?)\]|
 
         @@patterns << lambda do |body|
           body.force_encoding("utf-8").gsub!(regexp) { block.call($1) }
