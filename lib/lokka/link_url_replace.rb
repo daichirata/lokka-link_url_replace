@@ -23,7 +23,7 @@ module Lokka
         body
       end
 
-      def self.replace_pattarn(prefix, &block)
+      def self.replace_pattern(prefix, &block)
         regexp = %r|\[#{prefix}:(.*?)\]|
 
         @@patterns << lambda do |body|
@@ -35,29 +35,29 @@ module Lokka
         open(url, "r") { |o| o.read.scan(/<title>(.*)<\/title>/i).join("") } rescue url
       end
 
-      replace_pattarn :url do |url|
+      replace_pattern :url do |url|
         "<a href=\"#{url}\" target=\"_blank\">#{get_title(url)}</a>"
       end
 
-      replace_pattarn :github do |repository_info|
+      replace_pattern :github do |repository_info|
         name, repo = repository_info.split("/")
         "<a href=\"https://github.com/#{name}/#{repo}\" target=\"_blank\">#{repository_info}</a>"
       end
 
-      replace_pattarn :gist do |gist_id|
+      replace_pattern :gist do |gist_id|
         "<script src=\"https://gist.github.com/#{gist_id}.js?file=import_twilist.rb\"></script>"
       end
 
-      replace_pattarn :atnd do |atnd_id|
+      replace_pattern :atnd do |atnd_id|
         event_url = "http://atnd.org/events/#{atnd_id}"
         "<a href=\"http://atnd.org/events/#{atnd_id}\" target=\"_blank\">#{get_title(event_url)}</a>"
       end
 
-      replace_pattarn :twitter do |user_name|
+      replace_pattern :twitter do |user_name|
         "<a href=\"https://twitter.com/#!/#{user_name}\" target=\"_blank\">@#{user_name}</a>"
       end
 
-      replace_pattarn :tweet do |status|
+      replace_pattern :tweet do |status|
         result =
           JSON.parse(open("https://api.twitter.com/1/statuses/oembed.json?id=#{status}").read)
 
